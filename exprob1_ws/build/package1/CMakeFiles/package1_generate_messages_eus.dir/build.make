@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/sabrino/exprob/exprob1_ws/build
 include package1/CMakeFiles/package1_generate_messages_eus.dir/progress.make
 
 package1/CMakeFiles/package1_generate_messages_eus: /home/sabrino/exprob/exprob1_ws/devel/share/roseus/ros/package1/msg/Position.l
+package1/CMakeFiles/package1_generate_messages_eus: /home/sabrino/exprob/exprob1_ws/devel/share/roseus/ros/package1/msg/NewPosition.l
 package1/CMakeFiles/package1_generate_messages_eus: /home/sabrino/exprob/exprob1_ws/devel/share/roseus/ros/package1/srv/Nav.l
 package1/CMakeFiles/package1_generate_messages_eus: /home/sabrino/exprob/exprob1_ws/devel/share/roseus/ros/package1/manifest.l
 
@@ -63,17 +64,25 @@ package1/CMakeFiles/package1_generate_messages_eus: /home/sabrino/exprob/exprob1
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sabrino/exprob/exprob1_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from package1/Position.msg"
 	cd /home/sabrino/exprob/exprob1_ws/build/package1 && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg -Ipackage1:/home/sabrino/exprob/exprob1_ws/src/package1/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p package1 -o /home/sabrino/exprob/exprob1_ws/devel/share/roseus/ros/package1/msg
 
+/home/sabrino/exprob/exprob1_ws/devel/share/roseus/ros/package1/msg/NewPosition.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
+/home/sabrino/exprob/exprob1_ws/devel/share/roseus/ros/package1/msg/NewPosition.l: /home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sabrino/exprob/exprob1_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from package1/NewPosition.msg"
+	cd /home/sabrino/exprob/exprob1_ws/build/package1 && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg -Ipackage1:/home/sabrino/exprob/exprob1_ws/src/package1/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p package1 -o /home/sabrino/exprob/exprob1_ws/devel/share/roseus/ros/package1/msg
+
 /home/sabrino/exprob/exprob1_ws/devel/share/roseus/ros/package1/srv/Nav.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
 /home/sabrino/exprob/exprob1_ws/devel/share/roseus/ros/package1/srv/Nav.l: /home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sabrino/exprob/exprob1_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from package1/Nav.srv"
+/home/sabrino/exprob/exprob1_ws/devel/share/roseus/ros/package1/srv/Nav.l: /home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg
+/home/sabrino/exprob/exprob1_ws/devel/share/roseus/ros/package1/srv/Nav.l: /home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sabrino/exprob/exprob1_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp code from package1/Nav.srv"
 	cd /home/sabrino/exprob/exprob1_ws/build/package1 && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv -Ipackage1:/home/sabrino/exprob/exprob1_ws/src/package1/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p package1 -o /home/sabrino/exprob/exprob1_ws/devel/share/roseus/ros/package1/srv
 
 /home/sabrino/exprob/exprob1_ws/devel/share/roseus/ros/package1/manifest.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sabrino/exprob/exprob1_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp manifest code for package1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sabrino/exprob/exprob1_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp manifest code for package1"
 	cd /home/sabrino/exprob/exprob1_ws/build/package1 && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/sabrino/exprob/exprob1_ws/devel/share/roseus/ros/package1 package1 std_msgs geometry_msgs
 
 package1_generate_messages_eus: package1/CMakeFiles/package1_generate_messages_eus
 package1_generate_messages_eus: /home/sabrino/exprob/exprob1_ws/devel/share/roseus/ros/package1/msg/Position.l
+package1_generate_messages_eus: /home/sabrino/exprob/exprob1_ws/devel/share/roseus/ros/package1/msg/NewPosition.l
 package1_generate_messages_eus: /home/sabrino/exprob/exprob1_ws/devel/share/roseus/ros/package1/srv/Nav.l
 package1_generate_messages_eus: /home/sabrino/exprob/exprob1_ws/devel/share/roseus/ros/package1/manifest.l
 package1_generate_messages_eus: package1/CMakeFiles/package1_generate_messages_eus.dir/build.make

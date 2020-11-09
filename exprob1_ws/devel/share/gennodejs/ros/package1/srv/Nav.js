@@ -11,9 +11,11 @@ const _deserializer = _ros_msg_utils.Deserialize;
 const _arrayDeserializer = _deserializer.Array;
 const _finder = _ros_msg_utils.Find;
 const _getByteLength = _ros_msg_utils.getByteLength;
+let Position = require('../msg/Position.js');
 
 //-----------------------------------------------------------
 
+let NewPosition = require('../msg/NewPosition.js');
 
 //-----------------------------------------------------------
 
@@ -21,31 +23,22 @@ class NavRequest {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
-      this.x = null;
-      this.y = null;
+      this.in = null;
     }
     else {
-      if (initObj.hasOwnProperty('x')) {
-        this.x = initObj.x
+      if (initObj.hasOwnProperty('in')) {
+        this.in = initObj.in
       }
       else {
-        this.x = 0;
-      }
-      if (initObj.hasOwnProperty('y')) {
-        this.y = initObj.y
-      }
-      else {
-        this.y = 0;
+        this.in = new Position();
       }
     }
   }
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type NavRequest
-    // Serialize message field [x]
-    bufferOffset = _serializer.int64(obj.x, buffer, bufferOffset);
-    // Serialize message field [y]
-    bufferOffset = _serializer.int64(obj.y, buffer, bufferOffset);
+    // Serialize message field [in]
+    bufferOffset = Position.serialize(obj.in, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -53,10 +46,8 @@ class NavRequest {
     //deserializes a message object of type NavRequest
     let len;
     let data = new NavRequest(null);
-    // Deserialize message field [x]
-    data.x = _deserializer.int64(buffer, bufferOffset);
-    // Deserialize message field [y]
-    data.y = _deserializer.int64(buffer, bufferOffset);
+    // Deserialize message field [in]
+    data.in = Position.deserialize(buffer, bufferOffset);
     return data;
   }
 
@@ -71,12 +62,16 @@ class NavRequest {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '3b834ede922a0fff22c43585c533b49f';
+    return '54b245c98777dbddb65707f6e8c16925';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
+    package1/Position in
+    
+    ================================================================================
+    MSG: package1/Position
     int64 x
     int64 y
     
@@ -89,18 +84,11 @@ class NavRequest {
       msg = {};
     }
     const resolved = new NavRequest(null);
-    if (msg.x !== undefined) {
-      resolved.x = msg.x;
+    if (msg.in !== undefined) {
+      resolved.in = Position.Resolve(msg.in)
     }
     else {
-      resolved.x = 0
-    }
-
-    if (msg.y !== undefined) {
-      resolved.y = msg.y;
-    }
-    else {
-      resolved.y = 0
+      resolved.in = new Position()
     }
 
     return resolved;
@@ -111,22 +99,22 @@ class NavResponse {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
-      this.p = null;
+      this.out = null;
     }
     else {
-      if (initObj.hasOwnProperty('p')) {
-        this.p = initObj.p
+      if (initObj.hasOwnProperty('out')) {
+        this.out = initObj.out
       }
       else {
-        this.p = 0;
+        this.out = new NewPosition();
       }
     }
   }
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type NavResponse
-    // Serialize message field [p]
-    bufferOffset = _serializer.int64(obj.p, buffer, bufferOffset);
+    // Serialize message field [out]
+    bufferOffset = NewPosition.serialize(obj.out, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -134,13 +122,13 @@ class NavResponse {
     //deserializes a message object of type NavResponse
     let len;
     let data = new NavResponse(null);
-    // Deserialize message field [p]
-    data.p = _deserializer.int64(buffer, bufferOffset);
+    // Deserialize message field [out]
+    data.out = NewPosition.deserialize(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    return 8;
+    return 16;
   }
 
   static datatype() {
@@ -150,14 +138,21 @@ class NavResponse {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'fc79ae4c06a8a778f1823c93d70f35d2';
+    return '84ea29ecded721656460abd3df596359';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    int64 p
+    package1/NewPosition out
     
+    
+    
+    
+    ================================================================================
+    MSG: package1/NewPosition
+    int64 nx
+    int64 ny
     
     `;
   }
@@ -168,11 +163,11 @@ class NavResponse {
       msg = {};
     }
     const resolved = new NavResponse(null);
-    if (msg.p !== undefined) {
-      resolved.p = msg.p;
+    if (msg.out !== undefined) {
+      resolved.out = NewPosition.Resolve(msg.out)
     }
     else {
-      resolved.p = 0
+      resolved.out = new NewPosition()
     }
 
     return resolved;
@@ -182,6 +177,6 @@ class NavResponse {
 module.exports = {
   Request: NavRequest,
   Response: NavResponse,
-  md5sum() { return '3de51ac40d2fb192c2025702c11f2ede'; },
+  md5sum() { return 'ecf3a247110a76fb77a2db5d9c8c5101'; },
   datatype() { return 'package1/Nav'; }
 };

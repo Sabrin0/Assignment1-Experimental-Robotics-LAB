@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/sabrino/exprob/exprob1_ws/build
 include package1/CMakeFiles/package1_generate_messages_py.dir/progress.make
 
 package1/CMakeFiles/package1_generate_messages_py: /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/msg/_Position.py
+package1/CMakeFiles/package1_generate_messages_py: /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/msg/_NewPosition.py
 package1/CMakeFiles/package1_generate_messages_py: /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/srv/_Nav.py
 package1/CMakeFiles/package1_generate_messages_py: /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/msg/__init__.py
 package1/CMakeFiles/package1_generate_messages_py: /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/srv/__init__.py
@@ -64,25 +65,35 @@ package1/CMakeFiles/package1_generate_messages_py: /home/sabrino/exprob/exprob1_
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sabrino/exprob/exprob1_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG package1/Position"
 	cd /home/sabrino/exprob/exprob1_ws/build/package1 && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg -Ipackage1:/home/sabrino/exprob/exprob1_ws/src/package1/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p package1 -o /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/msg
 
+/home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/msg/_NewPosition.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/msg/_NewPosition.py: /home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sabrino/exprob/exprob1_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG package1/NewPosition"
+	cd /home/sabrino/exprob/exprob1_ws/build/package1 && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg -Ipackage1:/home/sabrino/exprob/exprob1_ws/src/package1/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p package1 -o /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/msg
+
 /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/srv/_Nav.py: /opt/ros/kinetic/lib/genpy/gensrv_py.py
 /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/srv/_Nav.py: /home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sabrino/exprob/exprob1_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python code from SRV package1/Nav"
+/home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/srv/_Nav.py: /home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg
+/home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/srv/_Nav.py: /home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sabrino/exprob/exprob1_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python code from SRV package1/Nav"
 	cd /home/sabrino/exprob/exprob1_ws/build/package1 && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv -Ipackage1:/home/sabrino/exprob/exprob1_ws/src/package1/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p package1 -o /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/srv
 
 /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/msg/__init__.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
 /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/msg/__init__.py: /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/msg/_Position.py
+/home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/msg/__init__.py: /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/msg/_NewPosition.py
 /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/msg/__init__.py: /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/srv/_Nav.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sabrino/exprob/exprob1_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python msg __init__.py for package1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sabrino/exprob/exprob1_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python msg __init__.py for package1"
 	cd /home/sabrino/exprob/exprob1_ws/build/package1 && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/msg --initpy
 
 /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/srv/__init__.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
 /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/srv/__init__.py: /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/msg/_Position.py
+/home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/srv/__init__.py: /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/msg/_NewPosition.py
 /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/srv/__init__.py: /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/srv/_Nav.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sabrino/exprob/exprob1_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python srv __init__.py for package1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sabrino/exprob/exprob1_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python srv __init__.py for package1"
 	cd /home/sabrino/exprob/exprob1_ws/build/package1 && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/srv --initpy
 
 package1_generate_messages_py: package1/CMakeFiles/package1_generate_messages_py
 package1_generate_messages_py: /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/msg/_Position.py
+package1_generate_messages_py: /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/msg/_NewPosition.py
 package1_generate_messages_py: /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/srv/_Nav.py
 package1_generate_messages_py: /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/msg/__init__.py
 package1_generate_messages_py: /home/sabrino/exprob/exprob1_ws/devel/lib/python2.7/dist-packages/package1/srv/__init__.py

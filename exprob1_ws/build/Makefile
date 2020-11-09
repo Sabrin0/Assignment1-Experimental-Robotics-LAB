@@ -400,6 +400,19 @@ _package1_generate_messages_check_deps_Nav/fast:
 .PHONY : _package1_generate_messages_check_deps_Nav/fast
 
 #=============================================================================
+# Target rules for targets named _package1_generate_messages_check_deps_NewPosition
+
+# Build rule for target.
+_package1_generate_messages_check_deps_NewPosition: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _package1_generate_messages_check_deps_NewPosition
+.PHONY : _package1_generate_messages_check_deps_NewPosition
+
+# fast build rule for target.
+_package1_generate_messages_check_deps_NewPosition/fast:
+	$(MAKE) -f package1/CMakeFiles/_package1_generate_messages_check_deps_NewPosition.dir/build.make package1/CMakeFiles/_package1_generate_messages_check_deps_NewPosition.dir/build
+.PHONY : _package1_generate_messages_check_deps_NewPosition/fast
+
+#=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_py
 
 # Build rule for target.
@@ -742,6 +755,7 @@ help:
 	@echo "... package1_gencpp"
 	@echo "... package1_generate_messages_cpp"
 	@echo "... _package1_generate_messages_check_deps_Nav"
+	@echo "... _package1_generate_messages_check_deps_NewPosition"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... package1_generate_messages"

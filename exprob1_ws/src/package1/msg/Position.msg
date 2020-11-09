@@ -1,3 +1,2 @@
-
-uint64 x
-uint64 y
+int64 x
+int64 y

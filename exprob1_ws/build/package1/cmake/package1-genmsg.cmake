@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "package1: 1 messages, 1 services")
+message(STATUS "package1: 2 messages, 1 services")
 
 set(MSG_I_FLAGS "-Ipackage1:/home/sabrino/exprob/exprob1_ws/src/package1/msg;-Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg")
 
@@ -22,9 +22,14 @@ add_custom_target(_package1_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "package1" "/home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg" ""
 )
 
+get_filename_component(_filename "/home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg" NAME_WE)
+add_custom_target(_package1_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "package1" "/home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg" ""
+)
+
 get_filename_component(_filename "/home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv" NAME_WE)
 add_custom_target(_package1_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "package1" "/home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "package1" "/home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv" "package1/Position:package1/NewPosition"
 )
 
 #
@@ -39,12 +44,18 @@ _generate_msg_cpp(package1
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/package1
 )
+_generate_msg_cpp(package1
+  "/home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/package1
+)
 
 ### Generating Services
 _generate_srv_cpp(package1
   "/home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv"
   "${MSG_I_FLAGS}"
-  ""
+  "/home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg;/home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/package1
 )
 
@@ -61,6 +72,8 @@ add_dependencies(package1_generate_messages package1_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg" NAME_WE)
+add_dependencies(package1_generate_messages_cpp _package1_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg" NAME_WE)
 add_dependencies(package1_generate_messages_cpp _package1_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv" NAME_WE)
 add_dependencies(package1_generate_messages_cpp _package1_generate_messages_check_deps_${_filename})
@@ -80,12 +93,18 @@ _generate_msg_eus(package1
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/package1
 )
+_generate_msg_eus(package1
+  "/home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/package1
+)
 
 ### Generating Services
 _generate_srv_eus(package1
   "/home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv"
   "${MSG_I_FLAGS}"
-  ""
+  "/home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg;/home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/package1
 )
 
@@ -102,6 +121,8 @@ add_dependencies(package1_generate_messages package1_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg" NAME_WE)
+add_dependencies(package1_generate_messages_eus _package1_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg" NAME_WE)
 add_dependencies(package1_generate_messages_eus _package1_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv" NAME_WE)
 add_dependencies(package1_generate_messages_eus _package1_generate_messages_check_deps_${_filename})
@@ -121,12 +142,18 @@ _generate_msg_lisp(package1
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/package1
 )
+_generate_msg_lisp(package1
+  "/home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/package1
+)
 
 ### Generating Services
 _generate_srv_lisp(package1
   "/home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv"
   "${MSG_I_FLAGS}"
-  ""
+  "/home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg;/home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/package1
 )
 
@@ -143,6 +170,8 @@ add_dependencies(package1_generate_messages package1_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg" NAME_WE)
+add_dependencies(package1_generate_messages_lisp _package1_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg" NAME_WE)
 add_dependencies(package1_generate_messages_lisp _package1_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv" NAME_WE)
 add_dependencies(package1_generate_messages_lisp _package1_generate_messages_check_deps_${_filename})
@@ -162,12 +191,18 @@ _generate_msg_nodejs(package1
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/package1
 )
+_generate_msg_nodejs(package1
+  "/home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/package1
+)
 
 ### Generating Services
 _generate_srv_nodejs(package1
   "/home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv"
   "${MSG_I_FLAGS}"
-  ""
+  "/home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg;/home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/package1
 )
 
@@ -184,6 +219,8 @@ add_dependencies(package1_generate_messages package1_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg" NAME_WE)
+add_dependencies(package1_generate_messages_nodejs _package1_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg" NAME_WE)
 add_dependencies(package1_generate_messages_nodejs _package1_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv" NAME_WE)
 add_dependencies(package1_generate_messages_nodejs _package1_generate_messages_check_deps_${_filename})
@@ -203,12 +240,18 @@ _generate_msg_py(package1
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/package1
 )
+_generate_msg_py(package1
+  "/home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/package1
+)
 
 ### Generating Services
 _generate_srv_py(package1
   "/home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv"
   "${MSG_I_FLAGS}"
-  ""
+  "/home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg;/home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/package1
 )
 
@@ -225,6 +268,8 @@ add_dependencies(package1_generate_messages package1_generate_messages_py)
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg" NAME_WE)
+add_dependencies(package1_generate_messages_py _package1_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg" NAME_WE)
 add_dependencies(package1_generate_messages_py _package1_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv" NAME_WE)
 add_dependencies(package1_generate_messages_py _package1_generate_messages_check_deps_${_filename})

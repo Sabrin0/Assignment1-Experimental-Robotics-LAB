@@ -20,145 +20,82 @@
 
 (defclass package1::NavRequest
   :super ros::object
-  :slots (_x _y ))
+  :slots (_in ))
 
 (defmethod package1::NavRequest
   (:init
    (&key
-    ((:x __x) 0)
-    ((:y __y) 0)
+    ((:in __in) (instance package1::Position :init))
     )
    (send-super :init)
-   (setq _x (round __x))
-   (setq _y (round __y))
+   (setq _in __in)
    self)
-  (:x
-   (&optional __x)
-   (if __x (setq _x __x)) _x)
-  (:y
-   (&optional __y)
-   (if __y (setq _y __y)) _y)
+  (:in
+   (&rest __in)
+   (if (keywordp (car __in))
+       (send* _in __in)
+     (progn
+       (if __in (setq _in (car __in)))
+       _in)))
   (:serialization-length
    ()
    (+
-    ;; int64 _x
-    8
-    ;; int64 _y
-    8
+    ;; package1/Position _in
+    (send _in :serialization-length)
     ))
   (:serialize
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; int64 _x
-#+(or :alpha :irix6 :x86_64)
-       (progn (sys::poke _x (send s :buffer) (send s :count) :long) (incf (stream-count s) 8))
-#-(or :alpha :irix6 :x86_64)
-       (cond ((and (class _x) (= (length (_x . bv)) 2)) ;; bignum
-              (write-long (ash (elt (_x . bv) 0) 0) s)
-              (write-long (ash (elt (_x . bv) 1) -1) s))
-             ((and (class _x) (= (length (_x . bv)) 1)) ;; big1
-              (write-long (elt (_x . bv) 0) s)
-              (write-long (if (>= _x 0) 0 #xffffffff) s))
-             (t                                         ;; integer
-              (write-long _x s)(write-long (if (>= _x 0) 0 #xffffffff) s)))
-     ;; int64 _y
-#+(or :alpha :irix6 :x86_64)
-       (progn (sys::poke _y (send s :buffer) (send s :count) :long) (incf (stream-count s) 8))
-#-(or :alpha :irix6 :x86_64)
-       (cond ((and (class _y) (= (length (_y . bv)) 2)) ;; bignum
-              (write-long (ash (elt (_y . bv) 0) 0) s)
-              (write-long (ash (elt (_y . bv) 1) -1) s))
-             ((and (class _y) (= (length (_y . bv)) 1)) ;; big1
-              (write-long (elt (_y . bv) 0) s)
-              (write-long (if (>= _y 0) 0 #xffffffff) s))
-             (t                                         ;; integer
-              (write-long _y s)(write-long (if (>= _y 0) 0 #xffffffff) s)))
+     ;; package1/Position _in
+       (send _in :serialize s)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; int64 _x
-#+(or :alpha :irix6 :x86_64)
-      (setf _x (prog1 (sys::peek buf ptr- :long) (incf ptr- 8)))
-#-(or :alpha :irix6 :x86_64)
-      (setf _x (let ((b0 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4)))
-                  (b1 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4))))
-              (cond ((= b1 -1) b0)
-                     ((and (= b1  0)
-                           (<= lisp::most-negative-fixnum b0 lisp::most-positive-fixnum))
-                      b0)
-                    ((= b1  0) (make-instance bignum :size 1 :bv (integer-vector b0)))
-                    (t (make-instance bignum :size 2 :bv (integer-vector b0 (ash b1 1)))))))
-   ;; int64 _y
-#+(or :alpha :irix6 :x86_64)
-      (setf _y (prog1 (sys::peek buf ptr- :long) (incf ptr- 8)))
-#-(or :alpha :irix6 :x86_64)
-      (setf _y (let ((b0 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4)))
-                  (b1 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4))))
-              (cond ((= b1 -1) b0)
-                     ((and (= b1  0)
-                           (<= lisp::most-negative-fixnum b0 lisp::most-positive-fixnum))
-                      b0)
-                    ((= b1  0) (make-instance bignum :size 1 :bv (integer-vector b0)))
-                    (t (make-instance bignum :size 2 :bv (integer-vector b0 (ash b1 1)))))))
+   ;; package1/Position _in
+     (send _in :deserialize buf ptr-) (incf ptr- (send _in :serialization-length))
    ;;
    self)
   )
 
 (defclass package1::NavResponse
   :super ros::object
-  :slots (_p ))
+  :slots (_out ))
 
 (defmethod package1::NavResponse
   (:init
    (&key
-    ((:p __p) 0)
+    ((:out __out) (instance package1::NewPosition :init))
     )
    (send-super :init)
-   (setq _p (round __p))
+   (setq _out __out)
    self)
-  (:p
-   (&optional __p)
-   (if __p (setq _p __p)) _p)
+  (:out
+   (&rest __out)
+   (if (keywordp (car __out))
+       (send* _out __out)
+     (progn
+       (if __out (setq _out (car __out)))
+       _out)))
   (:serialization-length
    ()
    (+
-    ;; int64 _p
-    8
+    ;; package1/NewPosition _out
+    (send _out :serialization-length)
     ))
   (:serialize
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; int64 _p
-#+(or :alpha :irix6 :x86_64)
-       (progn (sys::poke _p (send s :buffer) (send s :count) :long) (incf (stream-count s) 8))
-#-(or :alpha :irix6 :x86_64)
-       (cond ((and (class _p) (= (length (_p . bv)) 2)) ;; bignum
-              (write-long (ash (elt (_p . bv) 0) 0) s)
-              (write-long (ash (elt (_p . bv) 1) -1) s))
-             ((and (class _p) (= (length (_p . bv)) 1)) ;; big1
-              (write-long (elt (_p . bv) 0) s)
-              (write-long (if (>= _p 0) 0 #xffffffff) s))
-             (t                                         ;; integer
-              (write-long _p s)(write-long (if (>= _p 0) 0 #xffffffff) s)))
+     ;; package1/NewPosition _out
+       (send _out :serialize s)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; int64 _p
-#+(or :alpha :irix6 :x86_64)
-      (setf _p (prog1 (sys::peek buf ptr- :long) (incf ptr- 8)))
-#-(or :alpha :irix6 :x86_64)
-      (setf _p (let ((b0 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4)))
-                  (b1 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4))))
-              (cond ((= b1 -1) b0)
-                     ((and (= b1  0)
-                           (<= lisp::most-negative-fixnum b0 lisp::most-positive-fixnum))
-                      b0)
-                    ((= b1  0) (make-instance bignum :size 1 :bv (integer-vector b0)))
-                    (t (make-instance bignum :size 2 :bv (integer-vector b0 (ash b1 1)))))))
+   ;; package1/NewPosition _out
+     (send _out :deserialize buf ptr-) (incf ptr- (send _out :serialization-length))
    ;;
    self)
   )
@@ -167,7 +104,7 @@
   :super ros::object
   :slots ())
 
-(setf (get package1::Nav :md5sum-) "3de51ac40d2fb192c2025702c11f2ede")
+(setf (get package1::Nav :md5sum-) "ecf3a247110a76fb77a2db5d9c8c5101")
 (setf (get package1::Nav :datatype-) "package1/Nav")
 (setf (get package1::Nav :request) package1::NavRequest)
 (setf (get package1::Nav :response) package1::NavResponse)
@@ -175,28 +112,50 @@
 (defmethod package1::NavRequest
   (:response () (instance package1::NavResponse :init)))
 
-(setf (get package1::NavRequest :md5sum-) "3de51ac40d2fb192c2025702c11f2ede")
+(setf (get package1::NavRequest :md5sum-) "ecf3a247110a76fb77a2db5d9c8c5101")
 (setf (get package1::NavRequest :datatype-) "package1/NavRequest")
 (setf (get package1::NavRequest :definition-)
-      "int64 x
+      "package1/Position in
+
+================================================================================
+MSG: package1/Position
+int64 x
 int64 y
 ---
-int64 p
+package1/NewPosition out
 
+
+
+
+================================================================================
+MSG: package1/NewPosition
+int64 nx
+int64 ny
 ")
 
-(setf (get package1::NavResponse :md5sum-) "3de51ac40d2fb192c2025702c11f2ede")
+(setf (get package1::NavResponse :md5sum-) "ecf3a247110a76fb77a2db5d9c8c5101")
 (setf (get package1::NavResponse :datatype-) "package1/NavResponse")
 (setf (get package1::NavResponse :definition-)
-      "int64 x
+      "package1/Position in
+
+================================================================================
+MSG: package1/Position
+int64 x
 int64 y
 ---
-int64 p
+package1/NewPosition out
 
+
+
+
+================================================================================
+MSG: package1/NewPosition
+int64 nx
+int64 ny
 ")
 
 
 
-(provide :package1/Nav "3de51ac40d2fb192c2025702c11f2ede")
+(provide :package1/Nav "ecf3a247110a76fb77a2db5d9c8c5101")
 
 

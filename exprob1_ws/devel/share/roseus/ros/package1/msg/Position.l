@@ -35,16 +35,16 @@
   (:serialization-length
    ()
    (+
-    ;; uint64 _x
+    ;; int64 _x
     8
-    ;; uint64 _y
+    ;; int64 _y
     8
     ))
   (:serialize
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; uint64 _x
+     ;; int64 _x
 #+(or :alpha :irix6 :x86_64)
        (progn (sys::poke _x (send s :buffer) (send s :count) :long) (incf (stream-count s) 8))
 #-(or :alpha :irix6 :x86_64)
@@ -56,7 +56,7 @@
               (write-long (if (>= _x 0) 0 #xffffffff) s))
              (t                                         ;; integer
               (write-long _x s)(write-long (if (>= _x 0) 0 #xffffffff) s)))
-     ;; uint64 _y
+     ;; int64 _y
 #+(or :alpha :irix6 :x86_64)
        (progn (sys::poke _y (send s :buffer) (send s :count) :long) (incf (stream-count s) 8))
 #-(or :alpha :irix6 :x86_64)
@@ -72,8 +72,7 @@
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; uint64 _x
-     
+   ;; int64 _x
 #+(or :alpha :irix6 :x86_64)
       (setf _x (prog1 (sys::peek buf ptr- :long) (incf ptr- 8)))
 #-(or :alpha :irix6 :x86_64)
@@ -85,8 +84,7 @@
                       b0)
                     ((= b1  0) (make-instance bignum :size 1 :bv (integer-vector b0)))
                     (t (make-instance bignum :size 2 :bv (integer-vector b0 (ash b1 1)))))))
-   ;; uint64 _y
-     
+   ;; int64 _y
 #+(or :alpha :irix6 :x86_64)
       (setf _y (prog1 (sys::peek buf ptr- :long) (incf ptr- 8)))
 #-(or :alpha :irix6 :x86_64)
@@ -102,17 +100,16 @@
    self)
   )
 
-(setf (get package1::Position :md5sum-) "c840954fabcd833a6e0d0435ab12e8d0")
+(setf (get package1::Position :md5sum-) "3b834ede922a0fff22c43585c533b49f")
 (setf (get package1::Position :datatype-) "package1/Position")
 (setf (get package1::Position :definition-)
-      "
-uint64 x
-uint64 y
+      "int64 x
+int64 y
 
 ")
 
 
 
-(provide :package1/Position "c840954fabcd833a6e0d0435ab12e8d0")
+(provide :package1/Position "3b834ede922a0fff22c43585c533b49f")
 
 

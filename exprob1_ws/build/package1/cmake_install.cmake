@@ -33,7 +33,10 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/package1/msg" TYPE FILE FILES "/home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/package1/msg" TYPE FILE FILES
+    "/home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg"
+    "/home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg"
+    )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")

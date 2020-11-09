@@ -15,6 +15,7 @@
 #include <ros/builtin_message_traits.h>
 #include <ros/message_operations.h>
 
+#include <package1/NewPosition.h>
 
 namespace package1
 {
@@ -24,17 +25,17 @@ struct NavResponse_
   typedef NavResponse_<ContainerAllocator> Type;
 
   NavResponse_()
-    : p(0)  {
+    : out()  {
     }
   NavResponse_(const ContainerAllocator& _alloc)
-    : p(0)  {
+    : out(_alloc)  {
   (void)_alloc;
     }
 
 
 
-   typedef int64_t _p_type;
-  _p_type p;
+   typedef  ::package1::NewPosition_<ContainerAllocator>  _out_type;
+  _out_type out;
 
 
 
@@ -114,12 +115,12 @@ struct MD5Sum< ::package1::NavResponse_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "fc79ae4c06a8a778f1823c93d70f35d2";
+    return "84ea29ecded721656460abd3df596359";
   }
 
   static const char* value(const ::package1::NavResponse_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xfc79ae4c06a8a778ULL;
-  static const uint64_t static_value2 = 0xf1823c93d70f35d2ULL;
+  static const uint64_t static_value1 = 0x84ea29ecded72165ULL;
+  static const uint64_t static_value2 = 0x6460abd3df596359ULL;
 };
 
 template<class ContainerAllocator>
@@ -138,8 +139,15 @@ struct Definition< ::package1::NavResponse_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "int64 p\n\
+    return "package1/NewPosition out\n\
 \n\
+\n\
+\n\
+\n\
+================================================================================\n\
+MSG: package1/NewPosition\n\
+int64 nx\n\
+int64 ny\n\
 ";
   }
 
@@ -158,7 +166,7 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.p);
+      stream.next(m.out);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -177,8 +185,9 @@ struct Printer< ::package1::NavResponse_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::package1::NavResponse_<ContainerAllocator>& v)
   {
-    s << indent << "p: ";
-    Printer<int64_t>::stream(s, indent + "  ", v.p);
+    s << indent << "out: ";
+    s << std::endl;
+    Printer< ::package1::NewPosition_<ContainerAllocator> >::stream(s, indent + "  ", v.out);
   }
 };
 

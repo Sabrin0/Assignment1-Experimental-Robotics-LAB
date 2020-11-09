@@ -9,27 +9,52 @@ import smach_ros
 import time
 import random
 import sys
+
 from std_msgs.msg import String
 from geometry_msgs.msg import Twist
-
 from package1.srv import *
+# from get_pos import get_pos
 
-# INSTALLATION
-# - create ROS package in your workspace:
-#          $ catkin_create_pkg smach_tutorial std_msgs rospy
-# - move this file to the 'smach_tutorial/scr' folder and give running permissions to it with
-#          $ chmod +x state_machine.py
-# - run the 'roscore' and then you can run the state machine with
-#          $ rosrun smach_tutorial state_machine.py
-# - install the visualiser using
-#          $ sudo apt-get install ros-kinetic-smach-viewer
-# - run the visualiser with
-#          $ sudo apt-get install ros-kinetic-smach-viewer
 
-x = 3
-y = 5
-homeX = 10
-homeY = 20
+# Initialize target position
+x_pos = 0
+y_pos = 0
+# Initialize home position 
+homeX = 0
+homeY = 0
+
+# callback related to target position
+
+def callback_pos(data):
+    global x_pos
+    x_pos = data.linear.x
+    global y_pos 
+    y_pos = data.linear.y
+
+#    return data
+
+# callback related to user command request 
+
+def callback_user(data):
+    rospy.loginfo(rospy.get_caller_id() + 'I heard %s', data.data)
+    global state
+    state = "play"
+
+
+def nav_client(x,y):
+    global x_pos
+    global y_pos
+    global homeX
+    global homeY
+
+    rospy.wait_for_service('nav_service')
+    try:
+        nav_service = rospy.ServiceProxy('nav_service',Nav)
+        response = nav_service(x,y)
+        return response.p
+    except rospy.ServiceException as e:
+        print("Service call failed: %s" %e )
+
 
 def decision():
     return random.choice(['goToNormal','goToSleep'])
@@ -47,25 +72,23 @@ class Normal(smach.State):
         
     def execute(self,userdata):
         # function called when exiting from the node, it can be blacking
-        time.sleep(5)
-        global x
-        global y
+        time.sleep(3)
+        global x_pos
+        global y_pos
         
         while not rospy.is_shutdown():  
             rospy.loginfo(rospy.get_caller_id() + 'Executing state NORMAL ')
-#       userdata.unlocked_counter_out = userdata.unlocked_counter_in + 1
-            
+        # userdata.unlocked_counter_out = userdata.unlocked_counter_in + 1
+
             if self.counter == 3:
                 return 'goToSleep'
-            self.rate.sleep()
-#            navigation(x,y)
-            rospy.loginfo(rospy.get_caller_id() + 'i m going to x: %d y: %d',x, y)
-            x = x + 1
-            y = y + 1
+            time.sleep(1)
+            rospy.loginfo(rospy.get_caller_id() + 'i m going to x: %d y: %d',x_pos, y_pos)
+            nav_client(x_pos,y_pos)
+            
             self.counter += 1
             
-        
-        return decision()
+        return 'GoToSleep'
     
 
 # define state Locked
@@ -76,7 +99,7 @@ class Sleep(smach.State):
                              input_keys=['locked_counter_in'],
                              output_keys=['locked_counter_out'])
         self.sensor_input = 0
-        self.rate = rospy.Rate(200)  # Loop at 200 Hz
+        self.rate = rospy.Rate(50)  # Loop at 200 Hz
 
     def execute(self, userdata):
         # simulate that we have to get 5 data samples to compute the outcome
@@ -85,7 +108,7 @@ class Sleep(smach.State):
         global homeX
         global homeY
         rospy.loginfo(rospy.get_caller_id() + 'Executing state SLEEP ')
-        rospy.loginfo(rospy.get_caller_id() + 'i m going to home x: %d y: %d',homeX,homeY)
+        rospy.loginfo(rospy.get_caller_id() + 'I am going to home x: %d y: %d',homeX,homeY)
         self.rate.sleep()
         return 'goToNormal'
 
@@ -93,7 +116,7 @@ class Sleep(smach.State):
         
 def main():
     rospy.init_node('smach_example_state_machine')
-
+    rospy.Subscriber('position_xy', Twist, callback_pos)
     # Create a SMACH state machine
     sm = smach.StateMachine(outcomes=['container_interface'])
     sm.userdata.sm_counter = 0

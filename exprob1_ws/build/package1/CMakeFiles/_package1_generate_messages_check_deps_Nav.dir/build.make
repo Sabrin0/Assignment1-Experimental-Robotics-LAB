@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/sabrino/exprob/exprob1_ws/build
 include package1/CMakeFiles/_package1_generate_messages_check_deps_Nav.dir/progress.make
 
 package1/CMakeFiles/_package1_generate_messages_check_deps_Nav:
-	cd /home/sabrino/exprob/exprob1_ws/build/package1 && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py package1 /home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv 
+	cd /home/sabrino/exprob/exprob1_ws/build/package1 && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py package1 /home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv package1/Position:package1/NewPosition
 
 _package1_generate_messages_check_deps_Nav: package1/CMakeFiles/_package1_generate_messages_check_deps_Nav
 _package1_generate_messages_check_deps_Nav: package1/CMakeFiles/_package1_generate_messages_check_deps_Nav.dir/build.make

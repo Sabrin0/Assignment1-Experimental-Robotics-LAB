@@ -40,9 +40,9 @@ class Position {
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type Position
     // Serialize message field [x]
-    bufferOffset = _serializer.uint64(obj.x, buffer, bufferOffset);
+    bufferOffset = _serializer.int64(obj.x, buffer, bufferOffset);
     // Serialize message field [y]
-    bufferOffset = _serializer.uint64(obj.y, buffer, bufferOffset);
+    bufferOffset = _serializer.int64(obj.y, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -51,9 +51,9 @@ class Position {
     let len;
     let data = new Position(null);
     // Deserialize message field [x]
-    data.x = _deserializer.uint64(buffer, bufferOffset);
+    data.x = _deserializer.int64(buffer, bufferOffset);
     // Deserialize message field [y]
-    data.y = _deserializer.uint64(buffer, bufferOffset);
+    data.y = _deserializer.int64(buffer, bufferOffset);
     return data;
   }
 
@@ -68,15 +68,14 @@ class Position {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'c840954fabcd833a6e0d0435ab12e8d0';
+    return '3b834ede922a0fff22c43585c533b49f';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    
-    uint64 x
-    uint64 y
+    int64 x
+    int64 y
     
     `;
   }

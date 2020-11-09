@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/package1_generate_messages_nodejs"
   "/home/sabrino/exprob/exprob1_ws/devel/share/gennodejs/ros/package1/msg/Position.js"
+  "/home/sabrino/exprob/exprob1_ws/devel/share/gennodejs/ros/package1/msg/NewPosition.js"
   "/home/sabrino/exprob/exprob1_ws/devel/share/gennodejs/ros/package1/srv/Nav.js"
 )
 

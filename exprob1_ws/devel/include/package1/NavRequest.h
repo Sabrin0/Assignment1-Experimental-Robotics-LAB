@@ -15,6 +15,7 @@
 #include <ros/builtin_message_traits.h>
 #include <ros/message_operations.h>
 
+#include <package1/Position.h>
 
 namespace package1
 {
@@ -24,22 +25,17 @@ struct NavRequest_
   typedef NavRequest_<ContainerAllocator> Type;
 
   NavRequest_()
-    : x(0)
-    , y(0)  {
+    : in()  {
     }
   NavRequest_(const ContainerAllocator& _alloc)
-    : x(0)
-    , y(0)  {
+    : in(_alloc)  {
   (void)_alloc;
     }
 
 
 
-   typedef int64_t _x_type;
-  _x_type x;
-
-   typedef int64_t _y_type;
-  _y_type y;
+   typedef  ::package1::Position_<ContainerAllocator>  _in_type;
+  _in_type in;
 
 
 
@@ -119,12 +115,12 @@ struct MD5Sum< ::package1::NavRequest_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "3b834ede922a0fff22c43585c533b49f";
+    return "54b245c98777dbddb65707f6e8c16925";
   }
 
   static const char* value(const ::package1::NavRequest_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x3b834ede922a0fffULL;
-  static const uint64_t static_value2 = 0x22c43585c533b49fULL;
+  static const uint64_t static_value1 = 0x54b245c98777dbddULL;
+  static const uint64_t static_value2 = 0xb65707f6e8c16925ULL;
 };
 
 template<class ContainerAllocator>
@@ -143,7 +139,11 @@ struct Definition< ::package1::NavRequest_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "int64 x\n\
+    return "package1/Position in\n\
+\n\
+================================================================================\n\
+MSG: package1/Position\n\
+int64 x\n\
 int64 y\n\
 ";
   }
@@ -163,8 +163,7 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.x);
-      stream.next(m.y);
+      stream.next(m.in);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -183,10 +182,9 @@ struct Printer< ::package1::NavRequest_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::package1::NavRequest_<ContainerAllocator>& v)
   {
-    s << indent << "x: ";
-    Printer<int64_t>::stream(s, indent + "  ", v.x);
-    s << indent << "y: ";
-    Printer<int64_t>::stream(s, indent + "  ", v.y);
+    s << indent << "in: ";
+    s << std::endl;
+    Printer< ::package1::Position_<ContainerAllocator> >::stream(s, indent + "  ", v.in);
   }
 };
 

@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/sabrino/exprob/exprob1_ws/build
 include package1/CMakeFiles/package1_generate_messages_nodejs.dir/progress.make
 
 package1/CMakeFiles/package1_generate_messages_nodejs: /home/sabrino/exprob/exprob1_ws/devel/share/gennodejs/ros/package1/msg/Position.js
+package1/CMakeFiles/package1_generate_messages_nodejs: /home/sabrino/exprob/exprob1_ws/devel/share/gennodejs/ros/package1/msg/NewPosition.js
 package1/CMakeFiles/package1_generate_messages_nodejs: /home/sabrino/exprob/exprob1_ws/devel/share/gennodejs/ros/package1/srv/Nav.js
 
 
@@ -62,13 +63,21 @@ package1/CMakeFiles/package1_generate_messages_nodejs: /home/sabrino/exprob/expr
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sabrino/exprob/exprob1_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from package1/Position.msg"
 	cd /home/sabrino/exprob/exprob1_ws/build/package1 && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg -Ipackage1:/home/sabrino/exprob/exprob1_ws/src/package1/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p package1 -o /home/sabrino/exprob/exprob1_ws/devel/share/gennodejs/ros/package1/msg
 
+/home/sabrino/exprob/exprob1_ws/devel/share/gennodejs/ros/package1/msg/NewPosition.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/sabrino/exprob/exprob1_ws/devel/share/gennodejs/ros/package1/msg/NewPosition.js: /home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sabrino/exprob/exprob1_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from package1/NewPosition.msg"
+	cd /home/sabrino/exprob/exprob1_ws/build/package1 && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg -Ipackage1:/home/sabrino/exprob/exprob1_ws/src/package1/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p package1 -o /home/sabrino/exprob/exprob1_ws/devel/share/gennodejs/ros/package1/msg
+
 /home/sabrino/exprob/exprob1_ws/devel/share/gennodejs/ros/package1/srv/Nav.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
 /home/sabrino/exprob/exprob1_ws/devel/share/gennodejs/ros/package1/srv/Nav.js: /home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sabrino/exprob/exprob1_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from package1/Nav.srv"
+/home/sabrino/exprob/exprob1_ws/devel/share/gennodejs/ros/package1/srv/Nav.js: /home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg
+/home/sabrino/exprob/exprob1_ws/devel/share/gennodejs/ros/package1/srv/Nav.js: /home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sabrino/exprob/exprob1_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from package1/Nav.srv"
 	cd /home/sabrino/exprob/exprob1_ws/build/package1 && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv -Ipackage1:/home/sabrino/exprob/exprob1_ws/src/package1/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p package1 -o /home/sabrino/exprob/exprob1_ws/devel/share/gennodejs/ros/package1/srv
 
 package1_generate_messages_nodejs: package1/CMakeFiles/package1_generate_messages_nodejs
 package1_generate_messages_nodejs: /home/sabrino/exprob/exprob1_ws/devel/share/gennodejs/ros/package1/msg/Position.js
+package1_generate_messages_nodejs: /home/sabrino/exprob/exprob1_ws/devel/share/gennodejs/ros/package1/msg/NewPosition.js
 package1_generate_messages_nodejs: /home/sabrino/exprob/exprob1_ws/devel/share/gennodejs/ros/package1/srv/Nav.js
 package1_generate_messages_nodejs: package1/CMakeFiles/package1_generate_messages_nodejs.dir/build.make
 

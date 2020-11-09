@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/sabrino/exprob/exprob1_ws/build
 include package1/CMakeFiles/package1_generate_messages_cpp.dir/progress.make
 
 package1/CMakeFiles/package1_generate_messages_cpp: /home/sabrino/exprob/exprob1_ws/devel/include/package1/Position.h
+package1/CMakeFiles/package1_generate_messages_cpp: /home/sabrino/exprob/exprob1_ws/devel/include/package1/NewPosition.h
 package1/CMakeFiles/package1_generate_messages_cpp: /home/sabrino/exprob/exprob1_ws/devel/include/package1/Nav.h
 
 
@@ -63,15 +64,24 @@ package1/CMakeFiles/package1_generate_messages_cpp: /home/sabrino/exprob/exprob1
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sabrino/exprob/exprob1_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from package1/Position.msg"
 	cd /home/sabrino/exprob/exprob1_ws/src/package1 && /home/sabrino/exprob/exprob1_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg -Ipackage1:/home/sabrino/exprob/exprob1_ws/src/package1/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p package1 -o /home/sabrino/exprob/exprob1_ws/devel/include/package1 -e /opt/ros/kinetic/share/gencpp/cmake/..
 
+/home/sabrino/exprob/exprob1_ws/devel/include/package1/NewPosition.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
+/home/sabrino/exprob/exprob1_ws/devel/include/package1/NewPosition.h: /home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg
+/home/sabrino/exprob/exprob1_ws/devel/include/package1/NewPosition.h: /opt/ros/kinetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sabrino/exprob/exprob1_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from package1/NewPosition.msg"
+	cd /home/sabrino/exprob/exprob1_ws/src/package1 && /home/sabrino/exprob/exprob1_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg -Ipackage1:/home/sabrino/exprob/exprob1_ws/src/package1/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p package1 -o /home/sabrino/exprob/exprob1_ws/devel/include/package1 -e /opt/ros/kinetic/share/gencpp/cmake/..
+
 /home/sabrino/exprob/exprob1_ws/devel/include/package1/Nav.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 /home/sabrino/exprob/exprob1_ws/devel/include/package1/Nav.h: /home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv
+/home/sabrino/exprob/exprob1_ws/devel/include/package1/Nav.h: /home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg
+/home/sabrino/exprob/exprob1_ws/devel/include/package1/Nav.h: /home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg
 /home/sabrino/exprob/exprob1_ws/devel/include/package1/Nav.h: /opt/ros/kinetic/share/gencpp/msg.h.template
 /home/sabrino/exprob/exprob1_ws/devel/include/package1/Nav.h: /opt/ros/kinetic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sabrino/exprob/exprob1_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from package1/Nav.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sabrino/exprob/exprob1_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from package1/Nav.srv"
 	cd /home/sabrino/exprob/exprob1_ws/src/package1 && /home/sabrino/exprob/exprob1_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv -Ipackage1:/home/sabrino/exprob/exprob1_ws/src/package1/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p package1 -o /home/sabrino/exprob/exprob1_ws/devel/include/package1 -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 package1_generate_messages_cpp: package1/CMakeFiles/package1_generate_messages_cpp
 package1_generate_messages_cpp: /home/sabrino/exprob/exprob1_ws/devel/include/package1/Position.h
+package1_generate_messages_cpp: /home/sabrino/exprob/exprob1_ws/devel/include/package1/NewPosition.h
 package1_generate_messages_cpp: /home/sabrino/exprob/exprob1_ws/devel/include/package1/Nav.h
 package1_generate_messages_cpp: package1/CMakeFiles/package1_generate_messages_cpp.dir/build.make
 

@@ -6,16 +6,21 @@ python3 = True if sys.hexversion > 0x03000000 else False
 import genpy
 import struct
 
+import package1.msg
 
 class NavRequest(genpy.Message):
-  _md5sum = "3b834ede922a0fff22c43585c533b49f"
+  _md5sum = "54b245c98777dbddb65707f6e8c16925"
   _type = "package1/NavRequest"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """int64 x
+  _full_text = """package1/Position in
+
+================================================================================
+MSG: package1/Position
+int64 x
 int64 y
 """
-  __slots__ = ['x','y']
-  _slot_types = ['int64','int64']
+  __slots__ = ['in_']
+  _slot_types = ['package1/Position']
 
   def __init__(self, *args, **kwds):
     """
@@ -25,7 +30,7 @@ int64 y
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       x,y
+       in_
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -34,13 +39,10 @@ int64 y
     if args or kwds:
       super(NavRequest, self).__init__(*args, **kwds)
       # message fields cannot be None, assign default values for those that are
-      if self.x is None:
-        self.x = 0
-      if self.y is None:
-        self.y = 0
+      if self.in_ is None:
+        self.in_ = package1.msg.Position()
     else:
-      self.x = 0
-      self.y = 0
+      self.in_ = package1.msg.Position()
 
   def _get_types(self):
     """
@@ -55,7 +57,7 @@ int64 y
     """
     try:
       _x = self
-      buff.write(_get_struct_2q().pack(_x.x, _x.y))
+      buff.write(_get_struct_2q().pack(_x.in_.x, _x.in_.y))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -66,11 +68,13 @@ int64 y
     """
     codecs.lookup_error("rosmsg").msg_type = self._type
     try:
+      if self.in_ is None:
+        self.in_ = package1.msg.Position()
       end = 0
       _x = self
       start = end
       end += 16
-      (_x.x, _x.y,) = _get_struct_2q().unpack(str[start:end])
+      (_x.in_.x, _x.in_.y,) = _get_struct_2q().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -84,7 +88,7 @@ int64 y
     """
     try:
       _x = self
-      buff.write(_get_struct_2q().pack(_x.x, _x.y))
+      buff.write(_get_struct_2q().pack(_x.in_.x, _x.in_.y))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -96,11 +100,13 @@ int64 y
     """
     codecs.lookup_error("rosmsg").msg_type = self._type
     try:
+      if self.in_ is None:
+        self.in_ = package1.msg.Position()
       end = 0
       _x = self
       start = end
       end += 16
-      (_x.x, _x.y,) = _get_struct_2q().unpack(str[start:end])
+      (_x.in_.x, _x.in_.y,) = _get_struct_2q().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -123,16 +129,24 @@ python3 = True if sys.hexversion > 0x03000000 else False
 import genpy
 import struct
 
+import package1.msg
 
 class NavResponse(genpy.Message):
-  _md5sum = "fc79ae4c06a8a778f1823c93d70f35d2"
+  _md5sum = "84ea29ecded721656460abd3df596359"
   _type = "package1/NavResponse"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """int64 p
+  _full_text = """package1/NewPosition out
 
+
+
+
+================================================================================
+MSG: package1/NewPosition
+int64 nx
+int64 ny
 """
-  __slots__ = ['p']
-  _slot_types = ['int64']
+  __slots__ = ['out']
+  _slot_types = ['package1/NewPosition']
 
   def __init__(self, *args, **kwds):
     """
@@ -142,7 +156,7 @@ class NavResponse(genpy.Message):
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       p
+       out
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -151,10 +165,10 @@ class NavResponse(genpy.Message):
     if args or kwds:
       super(NavResponse, self).__init__(*args, **kwds)
       # message fields cannot be None, assign default values for those that are
-      if self.p is None:
-        self.p = 0
+      if self.out is None:
+        self.out = package1.msg.NewPosition()
     else:
-      self.p = 0
+      self.out = package1.msg.NewPosition()
 
   def _get_types(self):
     """
@@ -168,8 +182,8 @@ class NavResponse(genpy.Message):
     :param buff: buffer, ``StringIO``
     """
     try:
-      _x = self.p
-      buff.write(_get_struct_q().pack(_x))
+      _x = self
+      buff.write(_get_struct_2q().pack(_x.out.nx, _x.out.ny))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -180,10 +194,13 @@ class NavResponse(genpy.Message):
     """
     codecs.lookup_error("rosmsg").msg_type = self._type
     try:
+      if self.out is None:
+        self.out = package1.msg.NewPosition()
       end = 0
+      _x = self
       start = end
-      end += 8
-      (self.p,) = _get_struct_q().unpack(str[start:end])
+      end += 16
+      (_x.out.nx, _x.out.ny,) = _get_struct_2q().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -196,8 +213,8 @@ class NavResponse(genpy.Message):
     :param numpy: numpy python module
     """
     try:
-      _x = self.p
-      buff.write(_get_struct_q().pack(_x))
+      _x = self
+      buff.write(_get_struct_2q().pack(_x.out.nx, _x.out.ny))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -209,10 +226,13 @@ class NavResponse(genpy.Message):
     """
     codecs.lookup_error("rosmsg").msg_type = self._type
     try:
+      if self.out is None:
+        self.out = package1.msg.NewPosition()
       end = 0
+      _x = self
       start = end
-      end += 8
-      (self.p,) = _get_struct_q().unpack(str[start:end])
+      end += 16
+      (_x.out.nx, _x.out.ny,) = _get_struct_2q().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -221,14 +241,14 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_q = None
-def _get_struct_q():
-    global _struct_q
-    if _struct_q is None:
-        _struct_q = struct.Struct("<q")
-    return _struct_q
+_struct_2q = None
+def _get_struct_2q():
+    global _struct_2q
+    if _struct_2q is None:
+        _struct_2q = struct.Struct("<2q")
+    return _struct_2q
 class Nav(object):
   _type          = 'package1/Nav'
-  _md5sum = '3de51ac40d2fb192c2025702c11f2ede'
+  _md5sum = 'ecf3a247110a76fb77a2db5d9c8c5101'
   _request_class  = NavRequest
   _response_class = NavResponse

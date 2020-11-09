@@ -8,15 +8,14 @@ import struct
 
 
 class Position(genpy.Message):
-  _md5sum = "c840954fabcd833a6e0d0435ab12e8d0"
+  _md5sum = "3b834ede922a0fff22c43585c533b49f"
   _type = "package1/Position"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """
-uint64 x
-uint64 y
+  _full_text = """int64 x
+int64 y
 """
   __slots__ = ['x','y']
-  _slot_types = ['uint64','uint64']
+  _slot_types = ['int64','int64']
 
   def __init__(self, *args, **kwds):
     """
@@ -56,7 +55,7 @@ uint64 y
     """
     try:
       _x = self
-      buff.write(_get_struct_2Q().pack(_x.x, _x.y))
+      buff.write(_get_struct_2q().pack(_x.x, _x.y))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -71,7 +70,7 @@ uint64 y
       _x = self
       start = end
       end += 16
-      (_x.x, _x.y,) = _get_struct_2Q().unpack(str[start:end])
+      (_x.x, _x.y,) = _get_struct_2q().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -85,7 +84,7 @@ uint64 y
     """
     try:
       _x = self
-      buff.write(_get_struct_2Q().pack(_x.x, _x.y))
+      buff.write(_get_struct_2q().pack(_x.x, _x.y))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -101,7 +100,7 @@ uint64 y
       _x = self
       start = end
       end += 16
-      (_x.x, _x.y,) = _get_struct_2Q().unpack(str[start:end])
+      (_x.x, _x.y,) = _get_struct_2q().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -110,9 +109,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_2Q = None
-def _get_struct_2Q():
-    global _struct_2Q
-    if _struct_2Q is None:
-        _struct_2Q = struct.Struct("<2Q")
-    return _struct_2Q
+_struct_2q = None
+def _get_struct_2q():
+    global _struct_2q
+    if _struct_2q is None:
+        _struct_2q = struct.Struct("<2q")
+    return _struct_2q

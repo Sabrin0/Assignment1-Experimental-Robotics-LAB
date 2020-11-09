@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg"
+messages_str = "/home/sabrino/exprob/exprob1_ws/src/package1/msg/Position.msg;/home/sabrino/exprob/exprob1_ws/src/package1/msg/NewPosition.msg"
 services_str = "/home/sabrino/exprob/exprob1_ws/src/package1/srv/Nav.srv"
 pkg_name = "package1"
 dependencies_str = "std_msgs;geometry_msgs"

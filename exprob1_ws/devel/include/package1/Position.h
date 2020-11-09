@@ -35,10 +35,10 @@ struct Position_
 
 
 
-   typedef uint64_t _x_type;
+   typedef int64_t _x_type;
   _x_type x;
 
-   typedef uint64_t _y_type;
+   typedef int64_t _y_type;
   _y_type y;
 
 
@@ -119,12 +119,12 @@ struct MD5Sum< ::package1::Position_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "c840954fabcd833a6e0d0435ab12e8d0";
+    return "3b834ede922a0fff22c43585c533b49f";
   }
 
   static const char* value(const ::package1::Position_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xc840954fabcd833aULL;
-  static const uint64_t static_value2 = 0x6e0d0435ab12e8d0ULL;
+  static const uint64_t static_value1 = 0x3b834ede922a0fffULL;
+  static const uint64_t static_value2 = 0x22c43585c533b49fULL;
 };
 
 template<class ContainerAllocator>
@@ -143,9 +143,8 @@ struct Definition< ::package1::Position_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "\n\
-uint64 x\n\
-uint64 y\n\
+    return "int64 x\n\
+int64 y\n\
 ";
   }
 
@@ -185,9 +184,9 @@ struct Printer< ::package1::Position_<ContainerAllocator> >
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::package1::Position_<ContainerAllocator>& v)
   {
     s << indent << "x: ";
-    Printer<uint64_t>::stream(s, indent + "  ", v.x);
+    Printer<int64_t>::stream(s, indent + "  ", v.x);
     s << indent << "y: ";
-    Printer<uint64_t>::stream(s, indent + "  ", v.y);
+    Printer<int64_t>::stream(s, indent + "  ", v.y);
   }
 };
 
