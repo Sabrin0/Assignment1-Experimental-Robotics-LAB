@@ -5,6 +5,7 @@
 ## to the 'chatter' topic
 
 import rospy
+import time
 from std_msgs.msg import String
 
 def user_play():
@@ -12,10 +13,10 @@ def user_play():
     rospy.init_node('user_play', anonymous=True)
     rate = rospy.Rate(1) # 1 hz
     while not rospy.is_shutdown():
-        play_str = "play %s" % rospy.get_time()
+        play_str = "play"
         rospy.loginfo(play_str)
         pub.publish(play_str)
-        rate.sleep()
+        time.sleep(10)
 
 if __name__ == '__main__':
     try:

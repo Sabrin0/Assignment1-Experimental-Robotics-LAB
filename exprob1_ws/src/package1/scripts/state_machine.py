@@ -51,7 +51,7 @@ def nav_client(x,y):
     try:
         nav_service = rospy.ServiceProxy('nav_service',Nav)
         response = nav_service(x,y)
-        return response.p
+        return response.nx
     except rospy.ServiceException as e:
         print("Service call failed: %s" %e )
 
@@ -116,7 +116,9 @@ class Sleep(smach.State):
         
 def main():
     rospy.init_node('smach_example_state_machine')
+    rospy.Subscriber('chatter', String, callback_user)
     rospy.Subscriber('position_xy', Twist, callback_pos)
+    
     # Create a SMACH state machine
     sm = smach.StateMachine(outcomes=['container_interface'])
     sm.userdata.sm_counter = 0
