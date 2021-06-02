@@ -1,8 +1,0 @@
-prefix=/home/sabrino/exprob/exprob1_ws/devel
-
-Name: package1
-Description: Description of package1
-Version: 0.0.0
-Cflags: -I/home/sabrino/exprob/exprob1_ws/devel/include -I/home/sabrino/exprob/exprob1_ws/src/package1/include
-Libs: -L${prefix}/lib -lpackage1
-Requires: geometry_msgs roscpp rospy std_msgs message_runtime
