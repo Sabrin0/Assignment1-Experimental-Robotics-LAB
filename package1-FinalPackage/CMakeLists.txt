@@ -107,7 +107,7 @@ generate_messages(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 
 catkin_package(
-  INCLUDE_DIRS include
+  #INCLUDE_DIRS include
   LIBRARIES package1
   CATKIN_DEPENDS geometry_msgs roscpp rospy std_msgs message_runtime
   DEPENDS system_lib
