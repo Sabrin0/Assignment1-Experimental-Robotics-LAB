@@ -184,7 +184,8 @@ class Play(smach.State):
         self.rate = rospy.Rate(50)  # Loop at 50 Hz
 
     def execute(self, userdata):
-         """! Play state execution 
+         
+        """! Play state execution 
         @param x_pos x positon of the robot
         @param y_pos y position of the robot
         @param x_home y position of home
